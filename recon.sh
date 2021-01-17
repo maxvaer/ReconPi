@@ -223,6 +223,8 @@ startBruteForce() {
 }
 : 'Check for Vulnerabilities'
 runNuclei() {
+	startFunction  "Updateing Nuclei templates"
+	nuclei -update-templates
 	startFunction  "Nuclei Basic-detections"
 	nuclei -l "$SUBS"/hosts -t generic-detections/ -c 50 -H "x-bug-bounty: $hackerhandle" -o "$NUCLEISCAN"/generic-detections.txt
 	startFunction  "Nuclei CVEs Detection"
